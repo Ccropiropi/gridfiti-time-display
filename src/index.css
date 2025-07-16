@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Just-Clock-Web Design System - Gridfiti-inspired aesthetic
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Gridfiti-inspired gradient backgrounds */
+    --background: 250 100% 97%;
+    --foreground: 240 15% 15%;
+
+    /* Beautiful gradient colors */
+    --gradient-start: 270 100% 85%;
+    --gradient-middle: 300 80% 80%;
+    --gradient-end: 320 85% 85%;
+    
+    /* Clock styling */
+    --clock-bg: 0 0% 100%;
+    --clock-shadow: 270 25% 65%;
+    --clock-border: 270 30% 90%;
+    --clock-text: 240 20% 20%;
+    --clock-accent: 270 70% 70%;
+
+    /* UI Components */
+    --card: 0 0% 100%;
+    --card-foreground: 240 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 15% 15%;
+
+    --primary: 270 60% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 15% 95%;
+    --secondary-foreground: 240 15% 15%;
+
+    --muted: 270 15% 95%;
+    --muted-foreground: 240 10% 50%;
+
+    --accent: 270 80% 90%;
+    --accent-foreground: 240 15% 15%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 90%;
+    --input: 270 20% 95%;
+    --ring: 270 60% 60%;
+
+    /* Style-specific gradients */
+    --gradient-modern: linear-gradient(135deg, hsl(270 100% 85%) 0%, hsl(300 80% 80%) 50%, hsl(320 85% 85%) 100%);
+    --gradient-minimal: linear-gradient(135deg, hsl(200 100% 85%) 0%, hsl(220 90% 80%) 50%, hsl(240 85% 85%) 100%);
+    --gradient-word: linear-gradient(135deg, hsl(240 20% 15%) 0%, hsl(260 25% 20%) 50%, hsl(280 20% 25%) 100%);
+    --gradient-retro: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(240 10% 12%) 50%, hsl(0 0% 15%) 100%);
+    --gradient-analog: linear-gradient(135deg, hsl(220 15% 95%) 0%, hsl(230 20% 90%) 50%, hsl(240 25% 85%) 100%);
+    --gradient-bold: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(240 20% 10%) 50%, hsl(0 0% 15%) 100%);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with deep purples and subtle accents */
+    --background: 240 25% 8%;
+    --foreground: 270 15% 95%;
+
+    /* Dark gradient colors */
+    --gradient-start: 260 40% 15%;
+    --gradient-middle: 270 35% 20%;
+    --gradient-end: 280 30% 25%;
+    
+    /* Dark clock styling */
+    --clock-bg: 240 20% 12%;
+    --clock-shadow: 270 30% 30%;
+    --clock-border: 270 25% 25%;
+    --clock-text: 270 15% 90%;
+    --clock-accent: 270 60% 70%;
+
+    --card: 240 20% 12%;
+    --card-foreground: 270 15% 95%;
+
+    --popover: 240 20% 12%;
+    --popover-foreground: 270 15% 95%;
+
+    --primary: 270 60% 70%;
+    --primary-foreground: 240 25% 8%;
+
+    --secondary: 240 15% 18%;
+    --secondary-foreground: 270 15% 95%;
+
+    --muted: 240 15% 18%;
+    --muted-foreground: 270 10% 65%;
+
+    --accent: 270 30% 25%;
+    --accent-foreground: 270 15% 95%;
+
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 270 15% 95%;
+
+    /* Dark style-specific gradients */
+    --gradient-modern: linear-gradient(135deg, hsl(260 40% 15%) 0%, hsl(270 35% 20%) 50%, hsl(280 30% 25%) 100%);
+    --gradient-minimal: linear-gradient(135deg, hsl(200 40% 15%) 0%, hsl(220 35% 20%) 50%, hsl(240 30% 25%) 100%);
+    --gradient-word: linear-gradient(135deg, hsl(240 30% 8%) 0%, hsl(260 35% 12%) 50%, hsl(280 30% 15%) 100%);
+    --gradient-retro: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(240 15% 8%) 50%, hsl(0 0% 12%) 100%);
+    --gradient-analog: linear-gradient(135deg, hsl(220 20% 12%) 0%, hsl(230 25% 15%) 50%, hsl(240 30% 18%) 100%);
+    --gradient-bold: linear-gradient(135deg, hsl(0 0% 2%) 0%, hsl(240 25% 8%) 50%, hsl(0 0% 12%) 100%);
+
+    --border: 240 15% 20%;
+    --input: 240 15% 20%;
+    --ring: 270 60% 70%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-attachment: fixed;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Dynamic background class */
+  .bg-modern {
+    background: var(--gradient-modern);
+  }
+  
+  .bg-minimal {
+    background: var(--gradient-minimal);
+  }
+  
+  .bg-word {
+    background: var(--gradient-word);
+  }
+  
+  .bg-retro {
+    background: var(--gradient-retro);
+  }
+  
+  .bg-analog {
+    background: var(--gradient-analog);
+  }
+  
+  .bg-bold {
+    background: var(--gradient-bold);
+  }
+
+  /* Dot pattern overlay for different styles */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.8s ease;
+  }
+
+  /* Style-specific dot patterns */
+  .bg-word::before,
+  .bg-retro::before,
+  .bg-bold::before {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  .bg-minimal::before {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  }
+
+  .bg-analog::before {
+    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.08) 1px, transparent 1px);
+    background-size: 15px 15px;
+  }
+
+  /* Mixed background style for multiple different clock styles */
+  .bg-mixed {
+    background: var(--gradient-modern);
+    position: relative;
+  }
+
+  .bg-mixed::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-background, var(--gradient-minimal));
+    opacity: var(--background-opacity, 0.3);
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  /* Clock specific styles */
+  .clock-glass {
+    backdrop-filter: blur(10px);
+    background: hsl(var(--clock-bg) / 0.8);
+    border: 1px solid hsl(var(--clock-border));
+    box-shadow: 
+      0 8px 32px hsl(var(--clock-shadow) / 0.3),
+      0 0 0 1px hsl(var(--clock-border) / 0.5) inset;
+  }
+
+  .clock-primary {
+    font-size: 6rem;
+    font-weight: 200;
+    letter-spacing: -0.02em;
+  }
+
+  .clock-secondary {
+    font-size: 3rem;
+    font-weight: 200;
+    letter-spacing: -0.02em;
+  }
+
+  .clock-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--clock-accent));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
