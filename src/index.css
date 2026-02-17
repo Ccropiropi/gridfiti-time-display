@@ -2,92 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Just-Clock-Web Design System - Gridfiti-inspired aesthetic
-All colors MUST be HSL.
+/* Just-Clock-Web Design System
+   All colors MUST be HSL.
+   CSS @property for animatable gradient transitions.
 */
+
+@property --bg-h1 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 270;
+}
+@property --bg-s1 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 100;
+}
+@property --bg-l1 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 85;
+}
+@property --bg-h2 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 300;
+}
+@property --bg-s2 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 80;
+}
+@property --bg-l2 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 80;
+}
+@property --bg-h3 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 320;
+}
+@property --bg-s3 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 85;
+}
+@property --bg-l3 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 85;
+}
+@property --bg-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 135deg;
+}
 
 @layer base {
   :root {
-    /* Gridfiti-inspired gradient backgrounds */
     --background: 250 100% 97%;
     --foreground: 240 15% 15%;
 
-    /* Beautiful gradient colors */
     --gradient-start: 270 100% 85%;
     --gradient-middle: 300 80% 80%;
     --gradient-end: 320 85% 85%;
     
-    /* Clock styling */
     --clock-bg: 0 0% 100%;
     --clock-shadow: 270 25% 65%;
     --clock-border: 270 30% 90%;
     --clock-text: 240 20% 20%;
     --clock-accent: 270 70% 70%;
 
-    /* UI Components */
     --card: 0 0% 100%;
     --card-foreground: 240 15% 15%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 240 15% 15%;
-
     --primary: 270 60% 60%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 270 15% 95%;
     --secondary-foreground: 240 15% 15%;
-
     --muted: 270 15% 95%;
     --muted-foreground: 240 10% 50%;
-
     --accent: 270 80% 90%;
     --accent-foreground: 240 15% 15%;
-
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 270 20% 90%;
     --input: 270 20% 95%;
     --ring: 270 60% 60%;
-
-    /* Style-specific gradients */
-    --gradient-modern: linear-gradient(135deg, hsl(270 100% 85%) 0%, hsl(300 80% 80%) 50%, hsl(320 85% 85%) 100%);
-    --gradient-minimal: linear-gradient(135deg, hsl(200 100% 85%) 0%, hsl(220 90% 80%) 50%, hsl(240 85% 85%) 100%);
-    --gradient-word: linear-gradient(135deg, hsl(240 20% 15%) 0%, hsl(260 25% 20%) 50%, hsl(280 20% 25%) 100%);
-    --gradient-retro: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(240 10% 12%) 50%, hsl(0 0% 15%) 100%);
-    --gradient-analog: linear-gradient(135deg, hsl(220 15% 95%) 0%, hsl(230 20% 90%) 50%, hsl(240 25% 85%) 100%);
-    --gradient-bold: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(240 20% 10%) 50%, hsl(0 0% 15%) 100%);
-
     --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    /* Dark mode with deep purples and subtle accents */
     --background: 240 25% 8%;
     --foreground: 270 15% 95%;
 
-    /* Dark gradient colors */
     --gradient-start: 260 40% 15%;
     --gradient-middle: 270 35% 20%;
     --gradient-end: 280 30% 25%;
     
-    /* Dark clock styling */
     --clock-bg: 240 20% 12%;
     --clock-shadow: 270 30% 30%;
     --clock-border: 270 25% 25%;
@@ -96,32 +118,18 @@ All colors MUST be HSL.
 
     --card: 240 20% 12%;
     --card-foreground: 270 15% 95%;
-
     --popover: 240 20% 12%;
     --popover-foreground: 270 15% 95%;
-
     --primary: 270 60% 70%;
     --primary-foreground: 240 25% 8%;
-
     --secondary: 240 15% 18%;
     --secondary-foreground: 270 15% 95%;
-
     --muted: 240 15% 18%;
     --muted-foreground: 270 10% 65%;
-
     --accent: 270 30% 25%;
     --accent-foreground: 270 15% 95%;
-
     --destructive: 0 60% 55%;
     --destructive-foreground: 270 15% 95%;
-
-    /* Dark style-specific gradients */
-    --gradient-modern: linear-gradient(135deg, hsl(260 40% 15%) 0%, hsl(270 35% 20%) 50%, hsl(280 30% 25%) 100%);
-    --gradient-minimal: linear-gradient(135deg, hsl(200 40% 15%) 0%, hsl(220 35% 20%) 50%, hsl(240 30% 25%) 100%);
-    --gradient-word: linear-gradient(135deg, hsl(240 30% 8%) 0%, hsl(260 35% 12%) 50%, hsl(280 30% 15%) 100%);
-    --gradient-retro: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(240 15% 8%) 50%, hsl(0 0% 12%) 100%);
-    --gradient-analog: linear-gradient(135deg, hsl(220 20% 12%) 0%, hsl(230 25% 15%) 50%, hsl(240 30% 18%) 100%);
-    --gradient-bold: linear-gradient(135deg, hsl(0 0% 2%) 0%, hsl(240 25% 8%) 50%, hsl(0 0% 12%) 100%);
 
     --border: 240 15% 20%;
     --input: 240 15% 20%;
@@ -144,38 +152,30 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(
+      var(--bg-angle),
+      hsl(var(--bg-h1), calc(var(--bg-s1) * 1%), calc(var(--bg-l1) * 1%)) 0%,
+      hsl(var(--bg-h2), calc(var(--bg-s2) * 1%), calc(var(--bg-l2) * 1%)) 50%,
+      hsl(var(--bg-h3), calc(var(--bg-s3) * 1%), calc(var(--bg-l3) * 1%)) 100%
+    );
     background-attachment: fixed;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 100vh;
-    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      --bg-h1 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-s1 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-l1 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-h2 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-s2 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-l2 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-h3 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-s3 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-l3 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      --bg-angle 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: gradient-shift 15s ease-in-out infinite;
   }
 
-  /* Dynamic background class */
-  .bg-modern {
-    background: var(--gradient-modern);
-  }
-  
-  .bg-minimal {
-    background: var(--gradient-minimal);
-  }
-  
-  .bg-word {
-    background: var(--gradient-word);
-  }
-  
-  .bg-retro {
-    background: var(--gradient-retro);
-  }
-  
-  .bg-analog {
-    background: var(--gradient-analog);
-  }
-  
-  .bg-bold {
-    background: var(--gradient-bold);
-  }
-
-  /* Dot pattern overlay for different styles */
+  /* Dot pattern overlay */
   body::before {
     content: '';
     position: fixed;
@@ -186,49 +186,45 @@ All colors MUST be HSL.
     background-image: radial-gradient(circle, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
     transition: opacity 0.8s ease;
-  }
-
-  /* Style-specific dot patterns */
-  .bg-word::before,
-  .bg-retro::before,
-  .bg-bold::before {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  }
-
-  .bg-minimal::before {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  }
-
-  .bg-analog::before {
-    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.08) 1px, transparent 1px);
-    background-size: 15px 15px;
-  }
-
-  /* Mixed background style for multiple different clock styles */
-  .bg-mixed {
-    background: var(--gradient-modern);
-    position: relative;
-  }
-
-  .bg-mixed::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--secondary-background, var(--gradient-minimal));
-    opacity: var(--background-opacity, 0.3);
-    mix-blend-mode: soft-light;
-    pointer-events: none;
-    z-index: -1;
   }
 }
 
+/* Ambient gradient-shift animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    --bg-angle: 135deg;
+  }
+  25% {
+    --bg-angle: 150deg;
+  }
+  50% {
+    --bg-angle: 125deg;
+  }
+  75% {
+    --bg-angle: 140deg;
+  }
+}
+
+/* Retro scanline overlay */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Retro digit flicker */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
 @layer utilities {
-  /* Clock specific styles */
+  /* Base clock glass */
   .clock-glass {
     backdrop-filter: blur(10px);
     background: hsl(var(--clock-bg) / 0.8);
@@ -236,6 +232,125 @@ All colors MUST be HSL.
     box-shadow: 
       0 8px 32px hsl(var(--clock-shadow) / 0.3),
       0 0 0 1px hsl(var(--clock-border) / 0.5) inset;
+  }
+
+  /* Style-specific glass effects */
+  .clock-glass-modern {
+    backdrop-filter: blur(16px);
+    background: hsl(270 60% 98% / 0.7);
+    border: 1px solid hsl(270 50% 85% / 0.5);
+    box-shadow:
+      0 8px 32px hsl(270 60% 50% / 0.15),
+      0 0 60px hsl(300 60% 70% / 0.08),
+      0 0 0 1px hsl(270 40% 90% / 0.5) inset;
+  }
+  .dark .clock-glass-modern {
+    background: hsl(260 40% 12% / 0.7);
+    border: 1px solid hsl(270 40% 30% / 0.5);
+    box-shadow:
+      0 8px 32px hsl(270 50% 20% / 0.4),
+      0 0 60px hsl(280 60% 40% / 0.1),
+      0 0 0 1px hsl(270 30% 25% / 0.5) inset;
+  }
+
+  .clock-glass-minimal {
+    backdrop-filter: blur(20px);
+    background: hsl(210 80% 95% / 0.6);
+    border: 1px solid hsl(210 60% 80% / 0.4);
+    box-shadow:
+      0 8px 40px hsl(220 70% 50% / 0.15),
+      0 0 0 1px hsl(210 50% 85% / 0.3) inset;
+  }
+  .dark .clock-glass-minimal {
+    background: hsl(210 40% 10% / 0.7);
+    border: 1px solid hsl(220 40% 25% / 0.5);
+    box-shadow:
+      0 8px 40px hsl(220 50% 15% / 0.5),
+      0 0 0 1px hsl(210 30% 20% / 0.5) inset;
+  }
+
+  .clock-glass-word {
+    backdrop-filter: blur(8px);
+    background: hsl(30 15% 12% / 0.85);
+    border: 1px solid hsl(35 30% 25% / 0.4);
+    box-shadow:
+      0 8px 32px hsl(30 20% 8% / 0.5),
+      0 0 0 1px hsl(35 20% 20% / 0.3) inset;
+  }
+  .dark .clock-glass-word {
+    background: hsl(30 15% 8% / 0.9);
+    border: 1px solid hsl(35 25% 18% / 0.4);
+    box-shadow:
+      0 8px 32px hsl(30 20% 5% / 0.6),
+      0 0 0 1px hsl(35 15% 15% / 0.3) inset;
+  }
+
+  .clock-glass-retro {
+    backdrop-filter: blur(4px);
+    background: hsl(120 10% 6% / 0.9);
+    border: 1px solid hsl(120 60% 30% / 0.3);
+    box-shadow:
+      0 0 20px hsl(120 80% 40% / 0.1),
+      0 8px 32px hsl(0 0% 0% / 0.5),
+      0 0 0 1px hsl(120 40% 20% / 0.3) inset;
+    position: relative;
+    overflow: hidden;
+  }
+  .clock-glass-retro::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(120 60% 40% / 0.03) 2px,
+      hsl(120 60% 40% / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+  .dark .clock-glass-retro {
+    background: hsl(120 10% 4% / 0.95);
+    border: 1px solid hsl(120 70% 25% / 0.3);
+    box-shadow:
+      0 0 30px hsl(120 80% 40% / 0.15),
+      0 8px 32px hsl(0 0% 0% / 0.6),
+      0 0 0 1px hsl(120 50% 15% / 0.3) inset;
+  }
+
+  .clock-glass-analog {
+    backdrop-filter: blur(12px);
+    background: hsl(40 30% 96% / 0.8);
+    border: 1px solid hsl(40 20% 80% / 0.5);
+    box-shadow:
+      0 8px 32px hsl(40 15% 50% / 0.15),
+      0 0 0 1px hsl(40 25% 88% / 0.5) inset;
+  }
+  .dark .clock-glass-analog {
+    background: hsl(40 10% 12% / 0.8);
+    border: 1px solid hsl(40 15% 25% / 0.5);
+    box-shadow:
+      0 8px 32px hsl(40 10% 10% / 0.5),
+      0 0 0 1px hsl(40 10% 18% / 0.5) inset;
+  }
+
+  .clock-glass-bold {
+    backdrop-filter: blur(4px);
+    background: hsl(0 0% 3% / 0.95);
+    border: 1px solid hsl(0 0% 20% / 0.4);
+    box-shadow:
+      0 8px 32px hsl(0 0% 0% / 0.5),
+      0 0 0 1px hsl(0 80% 50% / 0.1) inset;
+  }
+  .dark .clock-glass-bold {
+    background: hsl(0 0% 2% / 0.95);
+    border: 1px solid hsl(0 0% 15% / 0.4);
+    box-shadow:
+      0 8px 32px hsl(0 0% 0% / 0.7),
+      0 0 0 1px hsl(0 80% 50% / 0.15) inset;
   }
 
   .clock-primary {
