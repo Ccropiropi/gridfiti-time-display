@@ -148,41 +148,45 @@ function AnalogClock({ time, timezone }: { time: Date; timezone: string }) {
   const secondAngle = seconds * 6;
 
   return (
-    <div className="relative w-32 h-32 rounded-full border-2 border-amber-700/30 dark:border-amber-400/20 bg-amber-50/10 dark:bg-amber-900/10">
+    <div className="relative w-32 h-32 mx-auto rounded-full border-2 border-amber-700/30 dark:border-amber-400/20 bg-amber-50/10 dark:bg-amber-900/10">
+      {/* Hour markers */}
       {[...Array(12)].map((_, i) => (
         <div key={i}
-          className="absolute w-0.5 h-6 bg-amber-800/40 dark:bg-amber-300/40"
+          className="absolute w-0.5 h-3 bg-amber-800/40 dark:bg-amber-300/40"
           style={{
-            top: '4px', left: '50%',
-            transformOrigin: '50% 60px',
-            transform: `translateX(-50%) rotate(${i * 30}deg)`,
+            top: '6px', left: 'calc(50% - 1px)',
+            transformOrigin: '1px 58px',
+            transform: `rotate(${i * 30}deg)`,
           }}
         />
       ))}
       
+      {/* Hour hand */}
       <div className="absolute w-1 bg-amber-900/80 dark:bg-amber-200/80 rounded-full"
-        style={{ height: '40px', top: '24px', left: '50%',
-          transformOrigin: '50% 40px',
-          transform: `translateX(-50%) rotate(${hourAngle}deg)`,
+        style={{ height: '30px', top: '34px', left: 'calc(50% - 2px)',
+          transformOrigin: '2px 30px',
+          transform: `rotate(${hourAngle}deg)`,
         }}
       />
       
+      {/* Minute hand */}
       <div className="absolute w-0.5 bg-amber-800/90 dark:bg-amber-300/90 rounded-full"
-        style={{ height: '56px', top: '8px', left: '50%',
-          transformOrigin: '50% 56px',
-          transform: `translateX(-50%) rotate(${minuteAngle}deg)`,
+        style={{ height: '44px', top: '20px', left: 'calc(50% - 1px)',
+          transformOrigin: '1px 44px',
+          transform: `rotate(${minuteAngle}deg)`,
         }}
       />
       
+      {/* Second hand */}
       <div className="absolute w-px bg-red-600 dark:bg-red-400 rounded-full"
-        style={{ height: '60px', top: '4px', left: '50%',
-          transformOrigin: '50% 60px',
-          transform: `translateX(-50%) rotate(${secondAngle}deg)`,
-          transition: 'none',
+        style={{ height: '48px', top: '16px', left: '50%',
+          transformOrigin: '0px 48px',
+          transform: `rotate(${secondAngle}deg)`,
         }}
       />
       
-      <div className="absolute w-2 h-2 bg-amber-900 dark:bg-amber-200 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+      {/* Center dot */}
+      <div className="absolute w-2 h-2 bg-amber-900 dark:bg-amber-200 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     </div>
   );
 }
